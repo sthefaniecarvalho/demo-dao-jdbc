@@ -1,6 +1,6 @@
 package applications;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -14,14 +14,18 @@ public class Program {
 		Department obj = new Department(1, "book");
 		System.out.println(obj);
 		
-		Seller seller = new Seller(21, "Bob", "bob@gmail.com", LocalDateTime.now(), 3000.00,
+		Seller seller1 = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.00,
 				obj);
-		System.out.println(seller);
+		System.out.println(seller1);
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		
 		System.out.println(sellerDao);
+		
+		Seller seller = sellerDao.findById(3);
+		
+		System.out.println(seller);
 		
 
 	}
